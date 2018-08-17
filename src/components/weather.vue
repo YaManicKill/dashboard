@@ -33,7 +33,7 @@ export default {
   },
   created: function created() {
     updateWeather.bind(this)();
-    this.updater = setInterval(updateWeather.bind(this), 1000 * 60);
+    this.updater = setInterval(updateWeather.bind(this), 1000 * 60 * 10);
   }
 }
 </script>
