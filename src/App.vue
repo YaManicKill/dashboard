@@ -3,6 +3,7 @@
     <top name="McDashboard"></top>
     <main>
     <clock />
+    <list />
     </main>
     <bottom></bottom>
   </div>
@@ -12,11 +13,12 @@
 import top from './structure/top.vue'
 import bottom from './structure/bottom.vue'
 import clock from './components/clock'
+import list from './components/long-list'
 
 export default {
   name: 'app',
   components: {
-    top, bottom, clock
+    top, bottom, clock, list
   }
 }
 </script>
