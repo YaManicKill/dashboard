@@ -1,8 +1,8 @@
 <template>
-  <parent rows="2">
+  <parent v-bind="$props">
     <div slot>
       <ul>
-        <li v-for="item in Array(100).fill(i++)" v-bind:key="item">{{ item }}</li>
+        <li v-for="(item, index) in Array(100).fill('test')" v-bind:key="index">{{ item }}-{{ index }}</li>
       </ul>
     </div>
   </parent>
@@ -20,8 +20,12 @@ export default {
   },
   data () {
     return {
-      time: new Date()
+      time: new Date(),
+      i: 0
     }
   },
+  defaultProps: {
+    rows: 5
+  }
 }
 </script>

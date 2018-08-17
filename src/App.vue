@@ -1,8 +1,7 @@
 <template>
   <div class="wrapper">
     <main>
-      <clock />
-      <list />
+      <component v-for="item in layout" :key="item.id" :is="item.name" v-bind="item.props"></component>
     </main>
   </div>
 </template>
@@ -11,11 +10,21 @@
 import clock from './components/clock'
 import list from './components/long-list'
 
+const components = {
+  clock, list
+};
+
+let id = 0;
+const layout = Object.keys(components).map((name) => ({id: id++, name, props: components[name].defaultProps || {}}))
+
 export default {
   name: 'app',
-  components: {
-    clock, list
-  }
+  components,
+  data() {
+    return {
+      layout
+    }
+  } 
 }
 </script>
 
@@ -41,7 +50,7 @@ main {
   grid-template-columns: repeat(4, calc((100vw - 4vw) / 4));
   grid-column-gap: 1vw;
   grid-template-rows: repeat(4, calc((100vh - 4vh) / 4));
-  grid-row-gap: 1vw;
+  grid-row-gap: 1vh;
   grid-template-areas: ". . ." ". clock ." ". . .";
 }
 

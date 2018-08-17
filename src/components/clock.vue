@@ -1,5 +1,5 @@
 <template>
-  <parent>
+  <parent v-bind="$props">
     <div slot>
     <span class="clock">{{ displayTime }}</span>
     <br />
@@ -44,7 +44,7 @@ export default {
     this.ticker = setInterval(function ticker() {
       that.time = new Date();
     }, 100);
-  },
+  }
 }
 </script>
 
