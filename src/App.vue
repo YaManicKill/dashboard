@@ -2,7 +2,7 @@
   <div class="wrapper">
     <top name="McDashboard"></top>
     <main>
-    
+    <clock />
     </main>
     <bottom></bottom>
   </div>
@@ -11,11 +11,12 @@
 <script>
 import top from './structure/top.vue'
 import bottom from './structure/bottom.vue'
+import clock from './components/clock'
 
 export default {
   name: 'app',
   components: {
-    top, bottom
+    top, bottom, clock
   }
 }
 </script>
