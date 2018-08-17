@@ -9,8 +9,12 @@
   },
   "dependencies": {
     "express-http-proxy": "^1.2.0",
+    "node-sass": "^4.9.3",
     "request-promise": "^4.2.2",
-    "vue": "^2.5.17"
+    "sass-loader": "^7.1.0",
+    "vue": "^2.5.17",
+    "vue-weathericons": "^0.0.3",
+    "weathericons": "^2.1.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.1",
