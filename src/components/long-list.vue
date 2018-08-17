@@ -1,6 +1,6 @@
 <template>
-  <parent v-bind="$props">
-    <div slot>
+  <parent>
+    <div>
       <ul>
         <li v-for="(item, index) in Array(100).fill('test')" v-bind:key="index">{{ item }}-{{ index }}</li>
       </ul>
@@ -24,8 +24,8 @@ export default {
       i: 0
     }
   },
-  defaultProps: {
-    rows: 5
+  defaults: {
+    height: 2
   }
 }
 </script>

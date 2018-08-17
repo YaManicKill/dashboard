@@ -1,28 +1,38 @@
 <template>
   <div class="wrapper">
     <main>
-      <component v-for="item in layout" :key="item.id" :is="item.name" v-bind="item.props"></component>
+      <component 
+        v-for="item in layout" 
+        :key="item.id" 
+        :is="item.name" 
+        :style="getStyles(item)"></component>
     </main>
   </div>
 </template>
 
 <script>
-import clock from './components/clock'
-import list from './components/long-list'
-
-const components = {
-  clock, list
-};
+import components from './components/index.js'
 
 let id = 0;
-const layout = Object.keys(components).map((name) => ({id: id++, name, props: components[name].defaultProps || {}}))
+const layout = Object.keys(components).map((name) => ({id: id++, name, ...components[name].defaults}))
 
 export default {
   name: 'app',
   components,
   data() {
     return {
-      layout
+      layout,
+      getStyles: (item) => {
+        const styles = {};
+        if (item.height > 1) {
+          styles["grid-row-end"] = `span ${item.height}`;
+        }
+        if (item.width > 1) {
+          styles["grid-column-end"] = `span ${item.width}`;
+        }
+
+        return styles;
+      }
     }
   } 
 }

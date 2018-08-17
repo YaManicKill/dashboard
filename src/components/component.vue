@@ -1,5 +1,5 @@
 <template>
-  <article v-bind:style="styles">
+  <article>
     <h1 v-if="title">{{ title }}</h1>
     <div><slot></slot></div>
   </article>
@@ -9,17 +9,7 @@
 export default {
   name: 'parent',
   props: {
-    title: String,
-    rows: Number
-  },
-  computed: {
-    styles: function () {
-      const styles = {};
-      if (this.rows) {
-        styles["grid-row-end"] = `span ${this.rows}`;
-      }
-      return styles;
-    }
+    title: String
   }
 }
 </script>

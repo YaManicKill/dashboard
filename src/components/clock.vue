@@ -1,15 +1,15 @@
 <template>
-  <parent v-bind="$props">
-    <div slot>
-    <span class="clock">{{ displayTime }}</span>
-    <br />
-    <span class="date">{{ displayDate }}</span>
+  <parent>
+    <div>
+      <span class="clock">{{ displayTime }}</span>
+      <br />
+      <span class="date">{{ displayDate }}</span>
     </div>
   </parent>
 </template>
 
 <script>
-  
+
 import parent from './component.vue';
 
 function padTime(time) {
