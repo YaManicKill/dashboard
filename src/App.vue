@@ -41,6 +41,10 @@ export default {
 <style>
 body {
   margin: 0;
+  background-image: url("https://source.unsplash.com/user/impatrickt/1920x1080/daily?nature,landscape");
+  background-position: 0;
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
 }
 
 .wrapper {
@@ -48,7 +52,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #ffffff;
 
   display: grid;
   grid-template-rows: 100vh;
