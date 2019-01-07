@@ -17,5 +17,7 @@ export default {
 <style scoped>
 article{
   overflow-y: auto;
+  display: grid;
+  align-content: center;
 }
 </style>
