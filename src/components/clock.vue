@@ -40,6 +40,6 @@ export default {
 
 <style scoped>
 .clock {
-  font-size: 8em;
+  font-size: 8rem;
 }
 </style>

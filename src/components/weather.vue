@@ -33,7 +33,11 @@ function getIcon(icon) {
 }
 
 function updateWeather() {
-  fetch('http://localhost:8081/weather')
+  let domain;
+  if (location.protocol === "chrome-extension:") {
+    domain = window.VAR_DOMAIN;
+  }
+  fetch(domain ? `${domain}/weather` : '/weather')
     .then((res) => res.json())
     .then((weather) => this.weather = weather);
 }

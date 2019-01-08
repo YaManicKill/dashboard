@@ -6,9 +6,11 @@
     "dev": "concurrently \"yarn dev:vue\" \"node server\\app.js\"",
     "dev:vue": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "prod": "node server\\app.js --prod"
   },
   "dependencies": {
+    "archiver": "^3.0.0",
     "concurrently": "^4.1.0",
     "express-http-proxy": "^1.2.0",
     "node-sass": "^4.9.3",
