@@ -1,27 +1,17 @@
 <template>
-  <parent>
-    <div>
-      <span class="clock">{{ displayTime }}</span>
-      <br />
-      <span class="date">{{ displayDate }}</span>
-    </div>
-  </parent>
+  <div>
+    <span class="clock">{{ displayTime }}</span>
+  </div>
 </template>
 
 <script>
-
-import parent from './component.vue';
 
 function padTime(time) {
   return String(time).padStart(2, "0")
 }
 
 export default {
-  extends: parent,
   name: 'clock',
-  components: {
-    parent
-  },
   data () {
     return {
       time: new Date()
@@ -50,6 +40,6 @@ export default {
 
 <style scoped>
 .clock {
-  font-size: 5em;
+  font-size: 8em;
 }
 </style>

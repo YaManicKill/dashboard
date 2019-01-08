@@ -1,15 +1,12 @@
 <template>
-  <parent>
-    <div>
-      <weather-icon class="icon" :icon="icon" />
-      <span> {{ weather.currently.summary }}</span>
-    </div>
-  </parent>
+  <div class="weather">
+    <weather-icon class="icon" :icon="icon" />
+    <span> {{ weather.currently.summary }}</span>
+  </div>
 </template>
 
 <script>
 
-import parent from './component.vue';
 import WeatherIcon from 'vue-weathericons';
 
 function getIcon(icon) {
@@ -42,10 +39,9 @@ function updateWeather() {
 }
 
 export default {
-  extends: parent,
   name: 'weather',
   components: {
-    parent, WeatherIcon
+    WeatherIcon
   },
   data () {
     return {
@@ -67,12 +63,11 @@ export default {
 </script>
 
 <style scoped>
-.wi {
-  font-size: 2em;
+.weather {
+  font-size: 2rem;
+  align-self: start;
+  justify-self: end;
+  margin-top: 1rem;
+  margin-right: 1rem;
 }
-span {
-
-  font-size: 2em;
-}
-
 </style>

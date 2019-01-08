@@ -1,20 +1,26 @@
 <template>
   <div class="wrapper">
     <main>
-      <component 
+      <parent 
         v-for="item in layout" 
-        :key="item.id" 
-        :is="item.name" 
-        :style="getStyles(item)"></component>
+        :key="item.id"
+        :class="item.name + '-container'"
+        :name="item.name"
+        :style="getStyles(item)">
+        <div :is="item.name"></div>
+        </parent>
     </main>
   </div>
 </template>
 
 <script>
 import components from './components/index.js'
+import parent from './components/parent'
 
 let id = 0;
 const layout = Object.keys(components).map((name) => ({id: id++, name, ...components[name].defaults}))
+
+components['parent'] = parent;
 
 export default {
   name: 'app',
@@ -58,13 +64,19 @@ body {
 }
 
 main {
+  --columns: 3;
+  --rows: 3;
+
+  --column-width: calc((100vw - calc(var(--columns) * 1vw)) / var(--columns));
+  --row-width: calc((100vh - calc(var(--rows) * 1vh)) / var(--rows));
+
   display: grid;
-  padding-left: 0.5vw;
-  grid-template-columns: repeat(4, calc((100vw - 4vw) / 4));
+  padding: 0.5vw;
+  grid-template-columns: repeat(var(--columns), var(--column-width));
   grid-column-gap: 1vw;
-  grid-template-rows: repeat(4, calc((100vh - 4vh) / 4));
+  grid-template-rows: repeat(var(--rows), var(--row-width));
   grid-row-gap: 1vh;
-  grid-template-areas: ". . ." ". clock ." ". . .";
+  grid-template-areas: ". . weather" ". clock ." ". . .";
 }
 
 </style>

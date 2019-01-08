@@ -1,7 +1,6 @@
 <template>
-  <article>
-    <h1 v-if="title">{{ title }}</h1>
-    <div><slot></slot></div>
+  <article :style="{gridArea: name}">
+    <slot></slot>
   </article>
 </template>
 
@@ -9,15 +8,16 @@
 export default {
   name: 'parent',
   props: {
-    title: String
+    name: String
   }
 }
 </script>
 
 <style scoped>
-article{
+article {
   overflow-y: auto;
   display: grid;
-  align-content: center;
+  align-items: center;
+  justify-items: center;
 }
 </style>
