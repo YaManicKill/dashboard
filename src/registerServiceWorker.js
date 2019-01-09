@@ -14,7 +14,7 @@ import { register } from 'register-service-worker';
               break;
         }
       });
-      navigator.serviceWorker.controller.postMessage({message: "check_for_update", domain: window.VAR_DOMAIN, version: window.VERSION});
+      navigator.serviceWorker.controller && navigator.serviceWorker.controller.postMessage({message: "check_for_update", domain: JSON.parse(localStorage.getItem("url")) || "/", version: JSON.parse(unescape(process.env.PACKAGE_JSON || '%7Bversion%3A0%7D')).version});
     },
     updated () {
       navigator.serviceWorker.getRegistrations().then(function(registrations) {
@@ -23,8 +23,9 @@ import { register } from 'register-service-worker';
        } })
       console.log('New content is available; please refresh.')
     },
-    error () {
-      console.log("ERROR");
+    error (e) {
+      console.log("Error with service worker");
+      console.log(e);
     }
   });
 // }

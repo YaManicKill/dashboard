@@ -10,8 +10,11 @@
 import WeatherIcon from 'vue-weathericons';
 
 function getIcon(icon) {
-  switch (icon) {      
-    case 'clear-day':
+  switch (icon) {    
+      case 'error':
+      case 'loading':
+        return '';  // Don't set an icon when loading/error
+      case 'clear-day':
         return 'day-sunny'
       case 'clear-night':
         return 'night-clear'
@@ -33,13 +36,10 @@ function getIcon(icon) {
 }
 
 function updateWeather() {
-  let domain;
-  if (location.protocol === "chrome-extension:") {
-    domain = window.VAR_DOMAIN;
-  }
-  fetch(domain ? `${domain}/weather` : '/weather')
+  fetch(`${this.baseUrl}weather`)
     .then((res) => res.json())
-    .then((weather) => this.weather = weather);
+    .then((weather) => this.weather = weather)
+    .catch(() => this.weather = {currently: {summary: "Error with server", icon: "error"}});
 }
 
 export default {
@@ -47,11 +47,15 @@ export default {
   components: {
     WeatherIcon
   },
+  props: {
+    baseUrl: String
+  },
   data () {
     return {
       weather: {
         currently: {
-          summary: "Loading"
+          summary: "Loading",
+          icon: "loading"
         }
       }
     }

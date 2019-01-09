@@ -7,7 +7,8 @@
         :class="item.name + '-container'"
         :name="item.name"
         :style="getStyles(item)">
-        <div :is="item.name"></div>
+        <div :is="item.name"
+          :baseUrl="baseUrl"></div>
         </parent>
     </main>
   </div>
@@ -16,6 +17,13 @@
 <script>
 import components from './components/index.js'
 import parent from './components/parent'
+
+let baseUrl = "/";
+
+if (window.chrome && window.chrome.runtime && window.chrome.storage) {
+  // If we are in the chrome extension, we can't get the data from the server in /, we need a base URL, which is set in localstorage settings
+  baseUrl = JSON.parse(localStorage.getItem("url")) || baseUrl;
+}
 
 let id = 0;
 const layout = Object.keys(components).map((name) => ({id: id++, name, ...components[name].defaults}))
@@ -27,6 +35,7 @@ export default {
   components,
   data() {
     return {
+      baseUrl,
       layout,
       getStyles: (item) => {
         const styles = {};

@@ -7,9 +7,10 @@ self.addEventListener('message', function(event) {
             if (location.protocol === "chrome-extension:") {
                 // We need to check if there's an update to the extension only if we are in the extension
                 const domain = data.domain;
-                fetch(domain ? `${domain}/version` : '/version')
+                fetch(domain ? `${domain}version` : 'version')
                     .then((res) => res.json())
-                    .then((newData) => data.version !== newData.version ? send_message_to_all_clients({message: "update"}) : send_message_to_all_clients({message: "no_update"}));
+                    .then((newData) => data.version !== newData.version ? send_message_to_all_clients({message: "update"}) : send_message_to_all_clients({message: "no_update"}))
+                    .catch(() => send_message_to_all_clients({message: "no_update"}));
                 break;
             } else {
                 send_message_to_all_clients({message: "no_update"});

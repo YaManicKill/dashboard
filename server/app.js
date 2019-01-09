@@ -10,12 +10,10 @@ const app = express();
 
 const VERSION = require(path.join(__dirname, "..", "package.json")).version;
 
-app.get('/weather', (req, res) => updateWeather().then((data) => res.send(data)));
-app.get('/version', (req, res) => res.send({version: VERSION}));
+app.get('/weather', (_, res) => updateWeather().then((data) => res.send(data)));
+app.get('/version', (_, res) => res.send({version: VERSION}));
  
 app.get('/extension', function(req, res) {
-    const host = req.protocol + '://' + req.get('host');
-
     var archive = archiver('zip');
     archive.on('end', function() {
         console.log('Archive wrote %d bytes', archive.pointer());
@@ -23,12 +21,7 @@ app.get('/extension', function(req, res) {
     res.attachment('dash.zip');
     archive.pipe(res);
     archive.glob("**/!(*manifest.json)", {cwd: path.join(__dirname, "..", "dist")}, {prefix: ""});
-
-    const manifest = require("../dist/chrome-manifest.json");
-    manifest.permissions = [host + "/*"];
-    archive.append(JSON.stringify(manifest), { name: 'manifest.json' });
-
-    archive.append(`window.VAR_DOMAIN = "${host}"; \nwindow.VERSION = "${VERSION}";`, {name: "js/vars.js"});
+    archive.file(path.join(__dirname, "..", "dist", "chrome-manifest.json"), { name: 'manifest.json' });
 
     archive.finalize();
 });
