@@ -6,7 +6,7 @@
     "chrome_url_overrides" : {
         "newtab": "index.html"
     },
-    "options_page": "extension/settings.html",
+    "options_page": "options.html",
     "optional_permissions": [ "tabs", "http://*/", "https://*/" ],
     "permissions": [
         "storage"

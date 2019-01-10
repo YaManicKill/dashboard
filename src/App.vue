@@ -22,7 +22,7 @@ let baseUrl = "/";
 
 if (window.chrome && window.chrome.runtime && window.chrome.storage) {
   // If we are in the chrome extension, we can't get the data from the server in /, we need a base URL, which is set in localstorage settings
-  baseUrl = JSON.parse(localStorage.getItem("url")) || baseUrl;
+  baseUrl = JSON.parse(localStorage.getItem("url") || `"${baseUrl}"`);
 }
 
 let id = 0;
@@ -85,7 +85,7 @@ main {
   grid-column-gap: 1vw;
   grid-template-rows: repeat(var(--rows), var(--row-width));
   grid-row-gap: 1vh;
-  grid-template-areas: ". . weather" ". clock ." ". . .";
+  grid-template-areas: "countdown . weather" ". clock ." ". . .";
 }
 
 </style>
