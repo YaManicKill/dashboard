@@ -31,7 +31,7 @@ const layout = Object.keys(components).map((name) => ({id: id++, name, ...compon
 components['parent'] = parent;
 
 export default {
-  name: 'app',
+  name: 'dashboard',
   components,
   data() {
     return {
