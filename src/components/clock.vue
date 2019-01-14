@@ -18,7 +18,6 @@ export default {
     }
   },
   computed: {
-      seconds: function () { return padTime(this.time.getSeconds()) },
       minutes: function () { return padTime(this.time.getMinutes()) },
       hours: function () { return padTime(this.time.getHours()) },
 
@@ -26,14 +25,14 @@ export default {
       month: function () { return padTime(this.time.getMonth() + 1) },
       year: function () { return this.time.getFullYear() },
 
-      displayTime: function () { return `${this.hours}:${this.minutes}:${this.seconds}` },
+      displayTime: function () { return `${this.hours}:${this.minutes}` },
       displayDate: function () { return `${this.date} ${this.month} ${this.year}`}
   },
   created: function created() {
     const that = this;
     this.ticker = setInterval(function ticker() {
       that.time = new Date();
-    }, 100);
+    }, 10000);
   }
 }
 </script>
