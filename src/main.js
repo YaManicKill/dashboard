@@ -13,11 +13,15 @@ const store = new Vuex.Store({
   plugins: [createPersistedState()],
   state: {
     layout: Dashboard.defaultLayout,
-    extension: location.protocol === "chrome-extension:"
+    extension: location.protocol === "chrome-extension:",
+    baseUrl: "/"
   },
   mutations: {
     setLayout (state, layout) {
       state.layout = layout;
+    },
+    setUrl (state, url) {
+      state.url = url;
     }
   }
 })

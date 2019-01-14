@@ -36,7 +36,7 @@ function getIcon(icon) {
 }
 
 function updateWeather() {
-  fetch(`${this.baseUrl}weather`)
+  fetch(`${this.$store.state.baseUrl}weather`)
     .then((res) => res.json())
     .then((weather) => this.weather = weather)
     .catch(() => this.weather = {currently: {summary: "Error with server", icon: "error"}});
@@ -46,9 +46,6 @@ export default {
   name: 'weather',
   components: {
     WeatherIcon
-  },
-  props: {
-    baseUrl: String
   },
   data () {
     return {
