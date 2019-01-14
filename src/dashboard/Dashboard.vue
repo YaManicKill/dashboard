@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <main>
+    <main v-bind:style="{'grid-template-areas': this.$store.state.layout}">
       <parent 
         v-for="item in layout" 
         :key="item.id"
@@ -33,6 +33,7 @@ components['parent'] = parent;
 export default {
   name: 'dashboard',
   components,
+  defaultLayout: '"countdown . weather" ". clock ." ". . ."',
   data() {
     return {
       baseUrl,
@@ -85,7 +86,6 @@ main {
   grid-column-gap: 1vw;
   grid-template-rows: repeat(var(--rows), var(--row-width));
   grid-row-gap: 1vh;
-  grid-template-areas: "countdown . weather" ". clock ." ". . .";
 }
 
 </style>
