@@ -1,6 +1,7 @@
 <template>
   <div class="countdown">
-    <span>{{ daysUntil }} days left</span>
+    <span v-if="date">{{ daysUntil }} days left</span>
+    <span v-if="!date">No date set for countdown</span>
   </div>
 </template>
 
@@ -33,7 +34,7 @@ export default {
     }
   },
   computed: {
-      date: function () {return this.userData.date || "2019-03-04"},
+      date: function () {return this.userData.date},
       weekOnly: function () {return this.userData.weekOnly === "true"},
       inclusive: function () {return this.userData.inclusive === "true"},
       future: function () {return new Date(this.date)},
