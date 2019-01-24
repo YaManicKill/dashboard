@@ -7,7 +7,7 @@
           <textarea id="layout" type="text" v-model="layout"> </textarea>
         </div>
 
-        <div v-if="this.$store.state.chrome" class="extension">
+        <div v-if="this.$store.state.extension" class="extension">
           <!-- TODO: We want to be able to run purely extension client-side, so allow user to put their keys in here instead -->
           <p>You need to have a server set, to get certain information that we can't save locally.</p>
           <label>Server: </label>
@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     saveSettings: function () {
-      if (this.$store.state.chrome) {
+      if (this.$store.state.extension) {
         let url = this.url;
         const log = console;
         if (!url.endsWith("/")) {
@@ -55,7 +55,7 @@ export default {
 
       this.$store.commit("setLayout", this.layout);
 
-      if (this.$store.state.chrome) {
+      if (this.$store.state.extension) {
         window.location.href = "/index.html";
       } else {
         window.location.href = "/";
