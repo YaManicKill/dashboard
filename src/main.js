@@ -14,7 +14,10 @@ const store = new Vuex.Store({
   state: {
     layout: Dashboard.defaultLayout,
     extension: location.protocol === "chrome-extension:",
-    baseUrl: "/"
+    baseUrl: "/",
+    components: {
+
+    }
   },
   mutations: {
     setLayout (state, layout) {
@@ -22,6 +25,12 @@ const store = new Vuex.Store({
     },
     setUrl (state, url) {
       state.url = url;
+    },
+    updateComponent (state, {name, options}) {
+      state.components[name] = {
+        ...state.components[name],
+        ...options
+      };
     }
   }
 })

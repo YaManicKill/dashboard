@@ -1,29 +1,30 @@
 <template>
   <div class="wrapper">
     <main v-bind:style="{'grid-template-areas': this.$store.state.layout}">
-      <parent 
+      <Block 
         v-for="item in layout" 
         :key="item.id"
         :class="item.name + '-container'"
         :name="item.name"
+        :item="item"
         :style="getStyles(item)">
-        <div :is="item.name"></div>
-        </parent>
+        </Block>
     </main>
   </div>
 </template>
 
 <script>
-import components from './components/index.js'
-import parent from './components/parent'
+import components from './components'
+import Block from './block/Block'
 let id = 0;
-const layout = Object.keys(components).map((name) => ({id: id++, name, ...components[name].defaults}))
-
-components['parent'] = parent;
+const layout = Object.keys(components).map((name) => ({id: id++, name, ...components[name].defaults, ...components[name]}))
 
 export default {
   name: 'dashboard',
-  components,
+  components: {
+    ...components,
+    Block
+  },
   defaultLayout: '"countdown . weather" ". clock ." ". . ."',
   data() {
     return {

@@ -72,7 +72,5 @@ export default {
   font-size: 2rem;
   align-self: start;
   justify-self: end;
-  margin-top: 1rem;
-  margin-right: 1rem;
 }
 </style>
