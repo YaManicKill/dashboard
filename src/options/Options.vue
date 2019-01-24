@@ -44,11 +44,11 @@ export default {
             origins: [url]
         }, function(granted) {
             if (granted) {
-                localStorage.setItem("url", JSON.stringify(url))
+                this.$store.commit("setUrl", url);
                 log.log('Set the url.');
                 window.chrome.runtime.sendMessage({message: "changeServer", url});
             } else {
-                log.log("boo");
+                log.log("Permission wasn't granted for accessing url");
             }
         });
       }
