@@ -18,7 +18,7 @@
     "register-service-worker": "1.5.2",
     "request-promise": "4.2.2",
     "sass-loader": "7.1.0",
-    "vue": "2.5.22",
+    "vue": "2.6.6",
     "vue-router": "3.0.2",
     "vue-weathericons": "0.0.3",
     "vuex": "3.1.0",
@@ -29,7 +29,7 @@
     "@vue/cli-plugin-babel": "3.3.0",
     "@vue/cli-plugin-eslint": "3.3.0",
     "@vue/cli-service": "3.3.1",
-    "vue-template-compiler": "2.5.22"
+    "vue-template-compiler": "2.6.6"
   },
   "eslintConfig": {
     "root": true,
