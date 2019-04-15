@@ -6,13 +6,6 @@
         <div class="layout">
           <textarea id="layout" type="text" v-model="layout"> </textarea>
         </div>
-
-        <div v-if="this.$store.state.extension" class="extension">
-          <!-- TODO: We want to be able to run purely extension client-side, so allow user to put their keys in here instead -->
-          <p>You need to have a server set, to get certain information that we can't save locally.</p>
-          <label>Server: </label>
-          <input id="server" type="text" v-model="url" />
-        </div>
         <div class="save">
         <button id="permissions" v-on:click="saveSettings">Save settings</button>
         </div>
@@ -24,42 +17,15 @@
 export default {
   name: 'options',
   data() {
-    const url = JSON.parse(localStorage.getItem("url") || "\"http://localhost:8081/\""); // TODO: Probably remove the default (or change it) for v1
 
     return {
-      layout: this.$store.state.layout,
-      url
+      layout: this.$store.state.layout
     }
   },
   methods: {
     saveSettings: function () {
-      if (this.$store.state.extension) {
-        let url = this.url;
-        const log = console;
-        if (!url.endsWith("/")) {
-            url += "/";
-        }
-        window.chrome.permissions.request({
-            permissions: ['tabs'],
-            origins: [url]
-        }, function(granted) {
-            if (granted) {
-                this.$store.commit("setUrl", url);
-                log.log('Set the url.');
-                window.chrome.runtime.sendMessage({message: "changeServer", url});
-            } else {
-                log.log("Permission wasn't granted for accessing url");
-            }
-        });
-      }
-
       this.$store.commit("setLayout", this.layout);
-
-      if (this.$store.state.extension) {
-        window.location.href = "/index.html";
-      } else {
-        window.location.href = "/";
-      }
+      window.location.href = "/index.html";
     }
   }
 }

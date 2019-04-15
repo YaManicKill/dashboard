@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "vue-cli-service build",
+    "build": "npm run build:vue && npm run build:extension",
+    "build:vue": "vue-cli-service build",
+    "build:extension": "node build.js",
     "lint": "vue-cli-service lint",
-    "dev": "concurrently \"yarn dev:vue\" \"node server\\app.js\"",
-    "dev:vue": "vue-cli-service serve",
-    "prod": "node server\\app.js --prod"
+    "dev": "vue-cli-service serve"
   },
   "dependencies": {
     "archiver": "3.0.0",
@@ -15,7 +15,6 @@
     "express-http-proxy": "1.5.1",
     "html-webpack-plugin": "3.2.0",
     "node-sass": "4.11.0",
-    "register-service-worker": "1.6.2",
     "request-promise": "4.2.4",
     "sass-loader": "7.1.0",
     "vue": "2.6.10",

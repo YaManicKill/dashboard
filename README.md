@@ -11,6 +11,8 @@ yarn install
 yarn dev
 ```
 
+Note that anything with cors needing disabled won't work like this, you'll need to build and install the extension to test that.
+
 ### Compiles and minifies for production
 ```
 yarn build

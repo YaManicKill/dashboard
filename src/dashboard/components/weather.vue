@@ -36,7 +36,7 @@ function getIcon(icon) {
 }
 
 function updateWeather() {
-  fetch(`${this.$store.state.baseUrl}weather`)
+  fetch(`https://api.darksky.net/forecast/${this.userData.key}/${this.userData.homeCoord}?units=uk2`)
     .then((res) => res.json())
     .then((weather) => this.weather = weather)
     .catch(() => this.weather = {currently: {summary: "Error with server", icon: "error"}});
@@ -46,6 +46,20 @@ export default {
   name: 'weather',
   components: {
     WeatherIcon
+  },
+  options () {
+    return [
+      {
+        name: "key",
+        type: "string",
+        label: "Darksky Key"
+      },
+      {
+        name: "homeCoord",
+        type: "string",
+        label: "Home coords"
+      }
+    ]
   },
   data () {
     return {
@@ -63,6 +77,9 @@ export default {
   created: function created() {
     updateWeather.bind(this)();
     this.updater = setInterval(updateWeather.bind(this), 1000 * 60 * 10);
+  },
+  props: {
+    userData: Object
   }
 }
 </script>

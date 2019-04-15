@@ -34,16 +34,4 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       - run: yarn build
-
-      # And then we need to copy the built code across to the server
-
-      - deploy:
-          name: deploy master
-          command: |
-            if [ "${CIRCLE_BRANCH}" = 'master' ]; then
-               sudo apt-get install -y rsync
-               echo '10people.co.uk,178.62.79.25 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBAPZxJCHQLjw0DxW/MI35RHZdj310FqdlkGrZi9fWdPioDzx3wfgvvCkGuqj5iTycM6N7hhw9itmDxuTjoMQvsU=' >> ~/.ssh/known_hosts
-               rsync -a dist/ 10people.co.uk:~/mcdash/dist
-               rsync -a server/ 10people.co.uk:~/mcdash/server
-               ssh 10people.co.uk rsync -a ~/mcdash/ /var/www/mcdash/
-            fi
+      - run: yarn lint
