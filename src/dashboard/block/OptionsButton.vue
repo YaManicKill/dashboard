@@ -32,6 +32,11 @@ article:hover .options-button {
   display: block;
 }
 
+.options-button:hover {
+  cursor: pointer;
+  display: block;
+}
+
 img {
   width: 1.5rem;
   height: 1.5rem;

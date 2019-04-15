@@ -9,6 +9,8 @@
         :item="item"
         :style="getStyles(item)">
         </Block>
+        
+      <OptionsButton></OptionsButton>
     </main>
   </div>
 </template>
@@ -16,6 +18,7 @@
 <script>
 import components from './components'
 import Block from './block/Block'
+import OptionsButton from './block/OptionsButton'
 let id = 0;
 const layout = Object.keys(components).map((name) => ({id: id++, name, ...components[name].defaults, ...components[name]}))
 
@@ -23,7 +26,7 @@ export default {
   name: 'dashboard',
   components: {
     ...components,
-    Block
+    Block, OptionsButton
   },
   defaultLayout: '"countdown . weather" ". clock ." ". . ."',
   data() {
