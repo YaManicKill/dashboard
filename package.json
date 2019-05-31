@@ -1,7 +1,6 @@
 {
   "name": "McDash",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "build": "npm run build:vue && npm run build:extension",
     "build:vue": "vue-cli-service build",
@@ -53,5 +52,19 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "release-it": {
+    "git": {
+      "requireCleanWorkingDir": false,
+      "tagName": "${version}"
+    },
+    "github": {
+      "release": true,
+      "releaseName": "${version}",
+      "assets": "./dist/dash.zip"
+    },
+    "npm": {
+      "publish": false
+    }
+  }
 }
