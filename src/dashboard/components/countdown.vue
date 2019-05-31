@@ -38,7 +38,7 @@ export default {
       weekOnly: function () {return this.userData.weekOnly === "true"},
       inclusive: function () {return this.userData.inclusive === "true"},
       future: function () {return new Date(this.date)},
-      days: function () {return Math.round((this.future-this.today)/(1000*60*60*24)) },
+      days: function () {return Math.ceil((this.future-this.today)/(1000*60*60*24)) },
       weeks: function() {return this.days / 7},
       weekendDays: function() {return Math.round(this.weeks * 2)},
       weekDays: function() {return this.weekOnly ? this.days - this.weekendDays : this.days},
