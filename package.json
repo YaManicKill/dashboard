@@ -1,6 +1,6 @@
 {
   "name": "McDash",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "scripts": {
     "build": "npm run build:vue && npm run build:extension",
     "build:vue": "vue-cli-service build",
