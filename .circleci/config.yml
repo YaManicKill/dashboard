@@ -46,7 +46,7 @@ jobs:
           command: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
       - run:
           name: Get version
-          command: echo "export VERSION=$(node -p '`${require("./package.json").version}-${Date.now()}`')" >> $BASH_ENV
+          command: echo "export VERSION=$(node -p '`${require("./package.json").version}+${Date.now()}`')" >> $BASH_ENV
       - run:
           name: "Dry run"
           command: npx release-it --ci $VERSION --dry-run
