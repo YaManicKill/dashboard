@@ -45,11 +45,14 @@ jobs:
           name: Avoid hosts unknown for github
           command: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
       - run:
+          name: Get version
+          command: echo "export VERSION=$(node -p '`${require("./package.json").version}-${Date.now()}`')" >> $BASH_ENV
+      - run:
           name: "Dry run"
-          command: npx release-it --ci $(echo -n $(node -p '`${require("./package.json").version}-${Date.now()}`')) --dry-run
+          command: npx release-it --ci $VERSION --dry-run
       - run:
           name: "Publish Release"
-          command: npx release-it --ci $(echo -n $(node -p '`${require("./package.json").version}-${Date.now()}`'))
+          command: npx release-it --ci $VERSION
 
 workflows:
   version: 2
