@@ -55,7 +55,8 @@
   ],
   "release-it": {
     "git": {
-      "commit": false
+      "commit": false,
+      "requireCleanWorkingDir": false
     },
     "github": {
       "release": true,
