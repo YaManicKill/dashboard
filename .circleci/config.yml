@@ -46,7 +46,7 @@ jobs:
           command: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
       - run:
           name: "Publish Release"
-          command: npx release-it --ci $(node -p '`${require(\"./package.json\").version}-${Date.now()}`')
+          command: npx release-it --ci $(node -p '`${require("./package.json").version}-${Date.now()}`')
 
 workflows:
   version: 2
