@@ -824,9 +824,9 @@
     eslint "^4.19.1"
     eslint-plugin-vue "^4.7.1"
 
-"@vue/cli-service@3.9.2":
-  version "3.9.2"
-  resolved "https://registry.yarnpkg.com/@vue/cli-service/-/cli-service-3.9.2.tgz#59c95500f1f20ab1cd1905c28f6c3b17c04d6de8"
+"@vue/cli-service@3.9.3":
+  version "3.9.3"
+  resolved "https://registry.yarnpkg.com/@vue/cli-service/-/cli-service-3.9.3.tgz#4bd5786465afb8b608c5c7fc9661390e747ea756"
   dependencies:
     "@intervolga/optimize-cssnano-plugin" "^1.0.5"
     "@soda/friendly-errors-webpack-plugin" "^1.7.1"
@@ -861,7 +861,7 @@
     hash-sum "^1.0.2"
     html-webpack-plugin "^3.2.0"
     launch-editor-middleware "^2.2.1"
-    lodash.defaultsdeep "^4.6.0"
+    lodash.defaultsdeep "^4.6.1"
     lodash.mapvalues "^4.6.0"
     lodash.transform "^4.6.0"
     mini-css-extract-plugin "^0.6.0"
@@ -4586,7 +4586,7 @@ lodash.defaults@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/lodash.defaults/-/lodash.defaults-4.2.0.tgz#d09178716ffea4dde9e5fb7b37f6f0802274580c"
 
-lodash.defaultsdeep@^4.6.0:
+lodash.defaultsdeep@^4.6.1:
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/lodash.defaultsdeep/-/lodash.defaultsdeep-4.6.1.tgz#512e9bd721d272d94e3d3a63653fa17516741ca6"
 
