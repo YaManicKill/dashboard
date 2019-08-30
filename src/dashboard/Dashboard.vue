@@ -51,6 +51,7 @@ body {
   background-image: url("https://source.unsplash.com/user/jasperboer/1920x1024/daily");
   background-position: center center;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .wrapper {
