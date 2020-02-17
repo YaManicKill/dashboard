@@ -5,7 +5,7 @@
     "build": "npm run build:vue && npm run build:extension",
     "build:vue": "vue-cli-service build",
     "build:extension": "node build.js",
-    "lint": "vue-cli-service lint",
+    "lint": "eslint --ext .js,.vue src",
     "dev": "vue-cli-service serve"
   },
   "dependencies": {
@@ -28,7 +28,6 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "4.2.2",
-    "@vue/cli-plugin-eslint": "4.2.2",
     "@vue/cli-service": "4.2.2",
     "vue-template-compiler": "2.6.11"
   },
