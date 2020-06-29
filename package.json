@@ -22,7 +22,7 @@
     "vue": "2.6.11",
     "vue-router": "3.3.4",
     "vue-weathericons": "0.0.3",
-    "vuex": "3.4.0",
+    "vuex": "3.5.0",
     "vuex-persistedstate": "3.0.1",
     "weathericons": "2.1.0"
   },
