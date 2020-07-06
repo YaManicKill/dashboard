@@ -12,7 +12,7 @@
     "archiver": "4.0.1",
     "babel-eslint": "10.1.0",
     "concurrently": "5.2.0",
-    "eslint": "7.3.1",
+    "eslint": "7.4.0",
     "eslint-plugin-vue": "6.2.2",
     "express-http-proxy": "1.5.1",
     "html-webpack-plugin": "4.3.0",
