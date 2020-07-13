@@ -9,7 +9,7 @@
     "dev": "vue-cli-service serve"
   },
   "dependencies": {
-    "archiver": "4.0.1",
+    "archiver": "4.0.2",
     "babel-eslint": "10.1.0",
     "concurrently": "5.2.0",
     "eslint": "7.4.0",
