@@ -19,7 +19,7 @@
     "node-sass": "4.14.1",
     "request-promise": "4.2.6",
     "sass-loader": "9.0.3",
-    "vue": "2.6.11",
+    "vue": "2.6.12",
     "vue-router": "3.4.3",
     "vue-weathericons": "0.0.3",
     "vuex": "3.5.1",
@@ -29,7 +29,7 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "4.5.4",
     "@vue/cli-service": "4.5.4",
-    "vue-template-compiler": "2.6.11"
+    "vue-template-compiler": "2.6.12"
   },
   "eslintConfig": {
     "root": true,
