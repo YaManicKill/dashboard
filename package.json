@@ -27,8 +27,8 @@
     "weathericons": "2.1.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "4.5.6",
-    "@vue/cli-service": "4.5.6",
+    "@vue/cli-plugin-babel": "4.5.7",
+    "@vue/cli-service": "4.5.7",
     "vue-template-compiler": "2.6.12"
   },
   "eslintConfig": {
