@@ -13,7 +13,7 @@
     "babel-eslint": "10.1.0",
     "concurrently": "6.0.0",
     "eslint": "7.21.0",
-    "eslint-plugin-vue": "7.6.0",
+    "eslint-plugin-vue": "7.7.0",
     "express-http-proxy": "1.6.2",
     "html-webpack-plugin": "5.2.0",
     "node-sass": "5.0.0",
